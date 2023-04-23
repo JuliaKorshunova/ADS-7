@@ -64,7 +64,7 @@ void TPQueue<T>::push(const T& values) {
             ellement->prev = tmps;
             ellement->data = values;
             tmps->next->prev = ellement;
-            tmps->next = ellement ;
+            tmps->next = ellement;
         }
         if (tmps == head && tmps->data.prior < values.prior) {
             head->prev = create(values);
