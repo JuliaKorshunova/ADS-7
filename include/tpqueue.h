@@ -11,27 +11,29 @@ class TPQueue {
         T data;
         Item* next;
         Item* prev;
-  };
-  Item* head;
-  Item* tail;
-  TPQueue::Item* create(const T& data) {
-        Item* item_name = new Item;
-        item_name->data = data;
-        item_name->next = nullptr;
-        item_name->prev = nullptr;
-        return item_name;
-  }
+    };
+    Item* head;
+    Item* tail;
+    TPQueue::Item* create(const T&);
  public:
     TPQueue() : head(nullptr), tail(nullptr) { }
     ~TPQueue() {
     void push(const T&);
     T pop();
     void print() const;
-  }
+};
 struct SYM {
   char ch;
   int prior;
 };
+template <typename T>
+typename TPQueue<T>::Item* TPQueue<T>::create(const T& data) {
+    Item* item_name = new Item;
+    item_name->data = data;
+    item_name->next = nullptr;
+    item_name->prev = nullptr;
+    return item_name;
+}
 template <typename T>
 void TPQueue<T>::push(const T& values) {
     if (nullptr == head) {
